@@ -1,0 +1,29 @@
+<div class="container border rounded mt-5 p-3">
+    <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit(formularioLogin)">
+        <div class="row mb-3">
+            <div class="col">
+                <h2>Login:</h2>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-2">Usuario:</div>
+            <div class="col">
+                <input class="form-control" type="text" placeholder="Ingrese su contraseña" formControlName="usuario">
+                <div *ngIf="formularioLogin.get('usuario')?.touched && formularioLogin.get('usuario')?.errors?.['required']" class="error_alert"> Debes ingresar un nombre de usuario. </div>
+
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-2">Contraseña:</div>
+            <div class="col">
+                <input class="form-control" type="password" placeholder="Ingrese su contraseña" formControlName="password">
+                <div *ngIf="formularioLogin.get('password')?.touched && formularioLogin.get('password')?.errors?.['required']" class="error_alert"> Debes ingresar una contraseña. </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col">
+                <button class="btn btn-primary" type="submit">Ingresar</button>
+            </div>
+        </div>
+    </form>
+</div>

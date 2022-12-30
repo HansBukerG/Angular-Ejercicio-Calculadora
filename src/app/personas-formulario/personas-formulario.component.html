@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center g-2">
+      <div class="col">
+        <div class="card">
+          <form class="card-body" [formGroup]="formulario" (ngSubmit)="onSubmit(formulario)">
+            <div class="row">
+              <h3 class="card-title">Formulario</h3>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Nombre:" formControlName="nombre"/>
+                <div *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.errors?.['required']" class="error_alert">Debes completar este campo</div>
+
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Apellido:" formControlName="apellido"/>
+                <div *ngIf="formulario.get('apellido')?.touched && formulario.get('apellido')?.errors?.['required']" class="error_alert">Debes completar este campo</div>
+            </div>
+              <div class="col"> <button type="text" class="btn btn-primary" placeholder="Nombre:">Ingresar</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

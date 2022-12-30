@@ -1,0 +1,24 @@
+<div class="container mb-5">
+    <form [formGroup]="formularioIngreso" (ngSubmit)="onSubmit(formularioIngreso)">
+      <div class="row justify-content-md-center">
+        <div class="col">
+            <select class="form-control" formControlName="tipo">
+                <option>Ingreso</option>
+                <option>Egreso</option>
+            </select>
+        </div>
+        <div class="col">
+            <input class="form-control"  type="text" placeholder="Descripcion:" formControlName="descripcion">
+            <div *ngIf="formularioIngreso.get('descripcion')?.touched && formularioIngreso.get('descripcion')?.errors?.['required']" class="error_alert">Debes ingresar este campo</div>
+        </div>
+        <div class="col">
+            <input class="form-control"  type="number" placeholder="Precio:" formControlName="valor">
+            <div *ngIf="formularioIngreso.get('valor')?.touched && formularioIngreso.get('valor')?.errors?.['required']" class="error_alert">Debes ingresar este campo</div>
+            <div *ngIf="formularioIngreso.get('valor')?.touched && formularioIngreso.get('valor')?.errors?.['min']" class="error_alert">El campo no puede ser menor a 0</div>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary"  type="submit" >Ingresar item</button>
+        </div>
+      </div>
+    </form>
+</div>
